@@ -12,12 +12,8 @@ public class StudentService {
     }
 
     public Student findById(String id) throws StudentNotFoundException {
-        Optional<Student> optionalStudent = repo.findStudentById(id);
-        if (optionalStudent.isPresent()) {
-            return optionalStudent.get();
-        } else {
-            throw new StudentNotFoundException("Der Student mit der id " + id + " konnte nicht gefunden werden!");
-        }
+        return repo.findStudentById(id)
+                .orElseThrow(() -> new StudentNotFoundException("Der Student mit der id " + id + " konnte nicht gefunden werden!"));
     }
 
     public List<Student> getAllStudents(){
