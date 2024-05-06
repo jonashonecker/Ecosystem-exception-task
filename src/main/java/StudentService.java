@@ -2,6 +2,7 @@ import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
 public class StudentService {
 
     private final StudentRepo repo = new StudentRepo();
@@ -16,7 +17,7 @@ public class StudentService {
                 .orElseThrow(() -> new StudentNotFoundException("Der Student mit der id " + id + " konnte nicht gefunden werden!"));
     }
 
-    public List<Student> getAllStudents(){
+    public List<Student> getAllStudents() {
         return repo.getAllStudents();
     }
 }
